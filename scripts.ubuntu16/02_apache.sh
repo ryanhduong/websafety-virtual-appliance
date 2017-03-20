@@ -11,6 +11,7 @@ apt-get -y install python-ldap python-pip
 
 # install django
 pip install django==1.8.17
+pip install pytz
 
 # to have PDF reports we need to install reportlab with a lot of dependencies
 apt-get -y install python-dev libjpeg-dev zlib1g-dev
