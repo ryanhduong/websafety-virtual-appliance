@@ -8,7 +8,7 @@ fi
 
 # integrate with apache
 a2dissite 000-default
-a2ensite qlproxy
+a2ensite websafety
 
 # replace the squid config
 if [ ! -f /etc/squid/squid.conf.default ]; then
@@ -30,7 +30,7 @@ fi
 chown -R proxy:proxy $SSL_DB
 
 # reset owner of installation path
-chown -R qlproxy:qlproxy /opt/qlproxy
+chown -R websafety:websafety /opt/websafety
 
 # restart all daemons
 systemctl restart wsicapd && systemctl restart apache2 && systemctl restart squid
