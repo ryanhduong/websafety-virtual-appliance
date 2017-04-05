@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install required python libs
-apt-get -y install python-ldap python-pip sudo
+apt-get -y install python-ldap python-pip python-openssl sudo
 
 # install django
 pip install django==1.8.17
