@@ -10,7 +10,7 @@ sed -i '' 's/\#LoadModule wsgi_module/LoadModule wsgi_module/' /usr/local/etc/ap
 if [ ! -f /usr/local/etc/apache24/extra/httpd-vhosts.conf.default ]; then
 	cp -f /usr/local/etc/apache24/extra/httpd-vhosts.conf /usr/local/etc/apache24/extra/httpd-vhosts.conf.default
 fi
-echo "Include /usr/local/etc/apache24/extra/qlproxy_virtual_host" > /usr/local/etc/apache24/extra/httpd-vhosts.conf
+echo "Include /usr/local/etc/apache24/extra/websafety_virtual_host" > /usr/local/etc/apache24/extra/httpd-vhosts.conf
 
 # replace the squid config
 if [ ! -f /usr/local/etc/squid/squid.conf.default ]; then
@@ -32,7 +32,7 @@ fi
 chown -R squid:squid $SSL_DB
 
 # reset owner of installation path
-chown -R qlproxy:qlproxy /opt/qlproxy
+chown -R websafety:websafety /opt/websafety
 
 # restart all daemons
 service apache24 restart
