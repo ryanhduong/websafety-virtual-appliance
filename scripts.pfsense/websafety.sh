@@ -32,7 +32,7 @@ pkg install -y websafety-5.0.0-amd64.txz
 cp -f /usr/local/etc/apache24/extra/httpd-vhosts.conf /usr/local/etc/apache24/extra/httpd-vhosts.conf.default
 
 # virtual hosts file needs to contaion only diladele virtual host
-echo "Include /usr/local/etc/apache24/extra/qlproxy_virtual_host" > /usr/local/etc/apache24/extra/httpd-vhosts.conf
+echo "Include /usr/local/etc/apache24/extra/websafety_virtual_host" > /usr/local/etc/apache24/extra/httpd-vhosts.conf
 
 # restart apache
 /usr/local/etc/rc.d/apache24.sh restart 
