@@ -1,5 +1,5 @@
-Web Safety for Squid
-====================
+Web Safety for Squid (5.0.0)
+============================
 
 Web Safety is an ICAP web filter that integrates with existing Squid proxy server and provides rich content and web filtering functionality to sanitize Internet traffic passing into internal home/enterprise network.
 
