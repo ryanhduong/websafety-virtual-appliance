@@ -9,6 +9,7 @@ pkg add $REPOURL/db5-5.3.28_3.txz
 pkg add $REPOURL/apr-1.5.2.1.5.4.txz
 pkg add $REPOURL/apache24-2.4.18.txz
 pkg add $REPOURL/ap24-mod_wsgi4-4.4.21.txz
+pkg add $REPOURL/sudo-1.8.15.txz
 
 # install django and sqlite modules for python
 pkg add $REPOURL/py27-setuptools27-19.2.txz
