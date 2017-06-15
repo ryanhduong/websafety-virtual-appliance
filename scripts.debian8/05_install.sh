@@ -21,9 +21,9 @@ fi
 pushd build/squid3
 
 # install ecap packages
-dpkg --install squid-common_3.5.23-3_all.deb
-dpkg --install squid_3.5.23-3_${ARCH}.deb
-dpkg --install squidclient_3.5.23-3_${ARCH}.deb
+dpkg --install squid-common_3.5.23-5_all.deb
+dpkg --install squid_3.5.23-5_${ARCH}.deb
+dpkg --install squidclient_3.5.23-5_${ARCH}.deb
 
 # and revert
 popd
