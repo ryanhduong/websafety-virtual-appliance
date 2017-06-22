@@ -13,7 +13,7 @@ yum -y install \
 
 # install python django for web ui
 pip install django==1.8.17
-pip install reportlab==3.3.0
+pip install reportlab==3.4.0
 pip install pytz
 
 # install apache web server to run web ui
