@@ -17,7 +17,7 @@ pip install pytz
 apt-get -y install python-dev libjpeg-dev zlib1g-dev
 
 # now install reportlab
-pip install reportlab==3.3.0
+pip install reportlab==3.4.0
 
 # install apache and mod_wsgi
 apt-get -y install apache2 libapache2-mod-wsgi
