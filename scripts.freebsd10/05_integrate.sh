@@ -19,7 +19,7 @@ fi
 cp -f squid.conf /usr/local/etc/squid/squid.conf
 
 # create squid storage for mimicked ssl certificates
-SSL_DB=/var/squid/cache/ssldb
+SSL_DB=/var/squid/ssldb
 if [ -d $SSL_DB ]; then
 	rm -Rf $SSL_DB
 fi
