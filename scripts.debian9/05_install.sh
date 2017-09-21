@@ -7,7 +7,6 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install some more required packages
-# apt-get -y install ssl-cert
 apt-get -y install squid-langpack
 
 # get arch
@@ -20,7 +19,7 @@ fi
 # decend into working directory
 pushd build/squid3
 
-# install ecap packages
+# install squid packages
 dpkg --install squid-common_3.5.23-5_all.deb
 dpkg --install squid_3.5.23-5_${ARCH}.deb
 dpkg --install squidclient_3.5.23-5_${ARCH}.deb
