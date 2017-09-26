@@ -12,7 +12,7 @@ rm -R build/squid3
 # we will be working in a subfolder make it
 mkdir -p build/squid3
 
-# copy the patches to the working folder
+# copy the patch to the working folder
 cp rules.patch build/squid3/rules.patch
 
 # decend into working directory
