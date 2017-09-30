@@ -6,31 +6,30 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# integrate with apache
-a2dissite 000-default
-a2ensite websafety
+# install clamav
+apt-get install -y clamav clamav-daemon libclamav-dev
 
-# replace the squid config
-if [ ! -f /etc/squid/squid.conf.default ]; then
-    cp -f /etc/squid/squid.conf /etc/squid/squid.conf.default
-fi
-cp -f squid.conf /etc/squid/squid.conf
+# we will be working in a subfolder
+rm -R ./build/ecap_clamav
+mkdir -p ./build/ecap_clamav
 
-# create squid storage for mimicked ssl certificates
-SSL_DB=/var/spool/squid_ssldb
-if [ -d $SSL_DB ]; then
-	rm -Rf $SSL_DB
-fi
+# change into the folder
+pushd ./build/ecap_clamav
 
-/usr/lib/squid/ssl_crtd -c -s $SSL_DB
-if [ $? -ne 0 ]; then
-    echo "Error $? while initializing SSL certificate storage, exiting..."
-    exit 1
-fi
-chown -R proxy:proxy $SSL_DB
+# from now on every error is fatal
+set -e
 
-# reset owner of installation path
-chown -R websafety:websafety /opt/websafety
+# download the sources
+wget http://www.measurement-factory.com/tmp/ecap/ecap_clamav_adapter-2.0.0.tar.gz
 
-# restart all daemons
-systemctl start wsicapd && service apache2 restart && service squid restart
+# unpack and untar them
+gunzip ecap_clamav_adapter-2.0.0.tar.gz
+tar -xvf ecap_clamav_adapter-2.0.0.tar
+
+# configure, make and install
+pushd ecap_clamav_adapter-2.0.0
+./configure && make && make install
+popd
+
+# and revert back
+popd
