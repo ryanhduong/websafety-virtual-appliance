@@ -17,7 +17,7 @@ pip install reportlab==3.4.0
 pip install pytz
 
 # install apache web server to run web ui
-yum -y install httpd mod_wsgi
+yum -y install httpd mod_wsgi krb5-workstation mc
 
 # make apache autostart on reboot
 systemctl enable httpd.service
