@@ -1,0 +1,27 @@
+#!/bin/csh
+
+# install clamav
+# apt-get install -y  clamav-daemon libclamav-dev
+pkg install pkgconf libecap clamav
+
+# we will be working in a subfolder
+rm -R ./build/ecap_clamav
+mkdir -p ./build/ecap_clamav
+
+# change into the folder
+cd ./build/ecap_clamav
+
+# download the sources
+fetch http://www.measurement-factory.com/tmp/ecap/ecap_clamav_adapter-2.0.0.tar.gz
+
+# unpack and untar them
+gunzip ecap_clamav_adapter-2.0.0.tar.gz
+tar -xvf ecap_clamav_adapter-2.0.0.tar
+
+# configure, make and install
+cd ecap_clamav_adapter-2.0.0
+./configure && make && make install
+popd
+
+# and revert back
+popd
