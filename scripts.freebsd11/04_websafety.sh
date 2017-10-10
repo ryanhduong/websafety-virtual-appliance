@@ -7,7 +7,7 @@ DDWS_VERSION=5.3.0
 DDWS_BUILD=3651
 
 # get latest version of web safety
-fetch http://packages.diladele.com/websafety/$DDWS_VERSION.$DDWS_BUILD/$ARCH/release/freebsd10/websafety-$DDWS_VERSION-$ARCH.txz
+fetch http://packages.diladele.com/websafety/$DDWS_VERSION.$DDWS_BUILD/$ARCH/release/freebsd11/websafety-$DDWS_VERSION-$ARCH.txz
 
 # and install it
 env ASSUME_ALWAYS_YES=YES pkg install -y websafety-$DDWS_VERSION-$ARCH.txz
