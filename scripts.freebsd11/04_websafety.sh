@@ -3,8 +3,8 @@
 # setup some configuration variables
 ARCH=`uname -m`
 
-DDWS_VERSION=5.3.0
-DDWS_BUILD=C842
+DDWS_VERSION=6.0.0
+DDWS_BUILD=726F
 
 # get latest version of web safety
 fetch http://packages.diladele.com/websafety/$DDWS_VERSION.$DDWS_BUILD/$ARCH/release/freebsd11/websafety-$DDWS_VERSION-$ARCH.txz

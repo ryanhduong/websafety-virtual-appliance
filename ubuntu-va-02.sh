@@ -11,7 +11,8 @@ pushd scripts.ubuntu16
 bash 02_apache.sh && \
 bash 03_squid.sh && \
 bash 04_websafety.sh && \
-bash 05_integrate.sh
+bash 05_clamav.sh && \
+bash 06_integrate.sh
 popd
 
 # install mysql
