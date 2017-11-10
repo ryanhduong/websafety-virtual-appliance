@@ -35,5 +35,6 @@ chown -R websafety:websafety /opt/websafety
 echo "SUCCESS"
 echo "SUCCESS"
 echo "SUCCESS --- VA is Ready (check the license and publish it) ---"
+cat /opt/websafety/etc/license.pem | grep "Not After"
 echo "SUCCESS"
 echo "SUCCESS"
