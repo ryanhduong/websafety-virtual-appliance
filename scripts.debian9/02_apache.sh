@@ -10,7 +10,7 @@ fi
 apt-get -y install python-ldap python-pip python-openssl sudo
 
 # install django
-pip install django==1.8.17
+pip install django==1.11.7
 pip install pytz
 
 # to have PDF reports we need to install reportlab with a lot of dependencies
