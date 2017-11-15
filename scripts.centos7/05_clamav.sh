@@ -20,7 +20,7 @@ pushd ./build/ecap_clamav
 set -e
 
 # download the sources
-wget http://www.measurement-factory.com/tmp/ecap/ecap_clamav_adapter-2.0.0.tar.gz
+wget http://www.e-cap.org/archive/ecap_clamav_adapter-2.0.0.tar.gz
 
 # unpack and untar them
 gunzip ecap_clamav_adapter-2.0.0.tar.gz
