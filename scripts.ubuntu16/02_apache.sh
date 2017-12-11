@@ -15,7 +15,7 @@ pip install pytz
 pip install requests
 
 # to have PDF reports we need to install reportlab with a lot of dependencies
-apt-get -y install python-dev libjpeg-dev zlib1g-dev
+apt-get -y install python-dev libjpeg-dev zlib1g-dev htop
 
 # now install reportlab
 pip install reportlab==3.4.0
