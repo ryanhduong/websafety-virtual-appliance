@@ -14,7 +14,7 @@ pkg add $REPOURL/sudo-1.8.20p2_2.txz
 # install django and sqlite modules for python
 pkg add $REPOURL/py27-setuptools-36.0.1.txz
 pkg add $REPOURL/py27-sqlite3-2.7.13_7.txz
-pkg add $REPOURL/py27-django18-1.8.18_1.txz
+pkg add $REPOURL/py27-django111-1.11.2.txz
 pkg add $REPOURL/py27-pytz-2016.10,1.txz
 pkg add $REPOURL/python2-2_3.txz
 pkg add $REPOURL/py27-pyasn1-0.2.2.txz
