@@ -11,7 +11,8 @@ pushd scripts.centos7
 bash 02_apache.sh && \
 bash 03_websafety.sh && \
 bash 04_squid.sh && \
-bash 05_integrate.sh
+bash 05_clamav.sh && \
+bash 06_integrate.sh
 popd
 
 # install mysql
@@ -34,5 +35,6 @@ chown -R websafety:websafety /opt/websafety
 echo "SUCCESS"
 echo "SUCCESS"
 echo "SUCCESS --- VA is Ready (check the license and publish it) ---"
+cat /opt/websafety/etc/license.pem | grep "Not After"
 echo "SUCCESS"
 echo "SUCCESS"

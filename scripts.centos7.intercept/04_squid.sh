@@ -19,7 +19,7 @@ yum -y update
 yum -y install perl-Crypt-OpenSSL-X509
 
 # and squid modules
-yum -y install libecap squid squid-helpers
+yum -y install libecap libecap-devel squid squid-helpers
 
 # make squid autostart after reboot
 systemctl enable squid.service

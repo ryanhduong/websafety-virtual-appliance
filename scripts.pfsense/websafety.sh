@@ -23,10 +23,10 @@ endif
 # how to check user websafety is in websafety group???
 
 # get latest version of diladele icap server
-fetch http://packages.diladele.com/websafety/5.2.0.210A/amd64/release/freebsd11/websafety-5.2.0-amd64.txz
+fetch http://packages.diladele.com/websafety/6.0.0.9A63/amd64/release/freebsd11/websafety-6.0.0-amd64.txz
 
 # and install it
-pkg install -y websafety-5.2.0-amd64.txz
+pkg install -y websafety-6.0.0-amd64.txz
 
 # copy default apache virtual hosts file just in case
 cp -f /usr/local/etc/apache24/extra/httpd-vhosts.conf /usr/local/etc/apache24/extra/httpd-vhosts.conf.default
