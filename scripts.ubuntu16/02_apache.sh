@@ -14,7 +14,6 @@ pip install django==1.11.7
 pip install pytz
 pip install requests
 pip install pandas
-				}
 
 # to have PDF reports we need to install reportlab with a lot of dependencies
 apt-get -y install python-dev libjpeg-dev zlib1g-dev htop
