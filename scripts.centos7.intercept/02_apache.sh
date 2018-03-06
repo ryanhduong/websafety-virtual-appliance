@@ -15,6 +15,7 @@ yum -y install \
 pip install django==1.11.7
 pip install reportlab==3.4.0
 pip install pytz
+pip install requests
 
 # install apache web server to run web ui
 yum -y install httpd mod_wsgi krb5-workstation mc

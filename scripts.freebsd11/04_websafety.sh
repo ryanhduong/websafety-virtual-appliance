@@ -2,8 +2,8 @@
 
 # setup some configuration variables
 ARCH=`uname -m`
-DDWS_VERSION=6.0.0
-DDWS_BUILD=9A63
+DDWS_VERSION=6.1.0
+DDWS_BUILD=1995
 
 # get latest version of web safety
 fetch http://packages.diladele.com/websafety/$DDWS_VERSION.$DDWS_BUILD/$ARCH/release/freebsd11/websafety-$DDWS_VERSION-$ARCH.txz
@@ -27,4 +27,10 @@ fi
 grep -e '^\s*wssyncd_enable\s*=\s*\"YES\"\s*$' /etc/rc.conf
 if [ $? -ne 0 ]; then
 	echo "wssyncd_enable=\"YES\"" >> /etc/rc.conf
+fi
+
+# autostart google safe browsing server
+grep -e '^\s*wsgsbd_enable\s*=\s*\"YES\"\s*$' /etc/rc.conf
+if [ $? -ne 0 ]; then
+	echo "wsgsbd_enable=\"YES\"" >> /etc/rc.conf
 fi
