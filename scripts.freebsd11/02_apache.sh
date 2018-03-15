@@ -1,7 +1,7 @@
 #!/bin/csh
 
 # add python modules
-env ASSUME_ALWAYS_YES=YES pkg install -y python py27-sqlite3 py27-ldap py27-pytz py27-openssl py27-django111 py27-requests
+env ASSUME_ALWAYS_YES=YES pkg install -y python py27-sqlite3 py27-ldap py27-pytz py27-openssl py27-django111 py27-requests py27-dateutils py27-pandas
 
 # add apache
 env ASSUME_ALWAYS_YES=YES pkg install -y apache24 ap24-mod_wsgi4
