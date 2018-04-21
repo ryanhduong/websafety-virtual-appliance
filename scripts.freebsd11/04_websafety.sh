@@ -2,7 +2,6 @@
 
 # setup some configuration variables
 ARCH=`uname -m`
-
 DDWS_VERSION=6.3.0
 DDWS_BUILD=B8A0
 
