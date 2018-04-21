@@ -20,9 +20,9 @@ fi
 pushd build/squid3
 
 # install squid packages
-dpkg --install squid-common_3.5.23-5_all.deb
-dpkg --install squid_3.5.23-5_${ARCH}.deb
-dpkg --install squidclient_3.5.23-5_${ARCH}.deb
+dpkg --install squid-common_3.5.27-1_all.deb
+dpkg --install squid_3.5.27-1_${ARCH}.deb
+dpkg --install squidclient_3.5.27-1_${ARCH}.deb
 
 # and revert
 popd
