@@ -25,9 +25,6 @@ pushd scripts.va
 bash 01_login.sh && bash 02_harden.sh
 popd
 
-# install the license
-cp license.pem /opt/websafety/etc/
-
 # and reset owner
 chown -R websafety:websafety /opt/websafety
 
