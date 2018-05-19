@@ -1,8 +1,9 @@
 #!/bin/csh
 
-# how to do non interactive update in freebsd???
-freebsd-update fetch
-freebsd-update install
+# perform non interactive update
+sed 's/\[ ! -t 0 \]/false/' /usr/sbin/freebsd-update > /tmp/freebsd-update
+sh /tmp/freebsd-update fetch
+sh /tmp/freebsd-update install
 
 # bootstrap pkg
 env ASSUME_ALWAYS_YES=YES pkg bootstrap
@@ -12,4 +13,4 @@ portsnap fetch
 portsnap extract
 
 # and reboot
-reboot
+reboot 

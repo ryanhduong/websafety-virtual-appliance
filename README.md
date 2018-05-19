@@ -7,6 +7,7 @@ Main features of the application are:
 
 - filters encrypted HTTPS traffic using Squid's SSL-Bump and Peek-n-Splice techologies
 - blocks pornography and explicit (adult) contents by deep inspecting HTML contents and URLs (like Dansguardian)
+- scans downloaded files for viruses (using eCAP ClamAV module)
 - blocks file downloads
 - group based web filtering (e.g. adults or admins are not filtered, kids or office workers are filtered extensively)
 - controls web usage by categories (e.g. social networks are not allowed, explicit material is not allowed for childred)
