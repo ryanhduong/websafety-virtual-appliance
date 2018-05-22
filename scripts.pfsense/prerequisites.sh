@@ -29,6 +29,23 @@ pkg add $REPOURL/py27-ipaddress-1.0.18.txz
 pkg add $REPOURL/py27-cryptography-1.7.2.txz
 pkg add $REPOURL/py27-openssl-16.2.0.txz
 
+# numpy and pandas
+pkg add $REPOURL/binutils-2.28,1.txz
+pkg add $REPOURL/gcc-ecj-4.5.txz
+pkg add $REPOURL/mpfr-3.1.5_1.txz
+pkg add $REPOURL/mpc-1.0.3.txz
+pkg add $REPOURL/gcc5-5.4.0_2.txz
+pkg add $REPOURL/blas-3.5.0_3.txz
+pkg add $REPOURL/cblas-1.0_6.txz
+pkg add $REPOURL/lapack-3.5.0_2.txz
+pkg add $REPOURL/suitesparse-4.0.2_6.txz
+pkg add $REPOURL/openblas-0.2.19_1,1.txz
+pkg add $REPOURL/py27-numpy-1.11.2_3,1.txz
+pkg add $REPOURL/py27-bottleneck-1.2.1.txz
+pkg add $REPOURL/py27-dateutil-2.6.0_1.txz
+pkg add $REPOURL/py27-numexpr-2.6.2.txz
+pkg add $REPOURL/py27-pandas-0.20.1.txz
+
 # in order to correctly start up apache at boot time init script needs to be renamed
 cp /usr/local/etc/rc.d/apache24 /usr/local/etc/rc.d/apache24.sh
 
