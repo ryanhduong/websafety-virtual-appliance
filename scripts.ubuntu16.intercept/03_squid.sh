@@ -14,9 +14,9 @@ echo "deb http://squid3527.diladele.com/ubuntu/ xenial main" > /etc/apt/sources.
 
 # and install
 apt-get update && apt-get install -y \
-	libecap3 \
-	libecap3-dev \
-	squid-common \
-	squid \
-	squidclient \
-	mc
+    libecap3 \
+    libecap3-dev \
+    squid-common \
+    squid \
+    squidclient \
+    mc
