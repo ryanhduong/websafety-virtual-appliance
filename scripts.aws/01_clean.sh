@@ -6,12 +6,22 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+# fix the mysql default user password error
+OLD_MYSQL_PASS=`cat /etc/mysql/debian.cnf | grep password | sort | uniq | awk '{ print $3 }'`
+mysql -u debian-sys-maint -p"$OLD_MYSQL_PASS" < setpass.sql
+
+# replace the password
+sed -i "s/$OLD_MYSQL_PASS/vtrCUtsRcAW9W8Da/g" /etc/mysql/debian.cnf
+
 # remove all keys
 shred -u /etc/ssh/*_key /etc/ssh/*_key.pub
 
 # authorized keys
-rm -f /home/ubuntu/.ssh/authorized_keys
-rm -f /root/.ssh/authorized_keys
+find / -name "authorized_keys" -exec rm –f {} \;
+
+# remove source control
+find /root/ /home/*/ -name .cvspass -exec rm –f {} \;
+find /root/.subversion/auth/svn.simple/ /home/*/.subversion/auth/svn.simple/ -exec rm –rf {} \;
 
 # remove all scripts
 cd /home/ubuntu
@@ -20,4 +30,4 @@ rm -Rf scripts.mysql
 rm -Rf scripts.aws
 
 # remove history
-shred -u ~/.*history
+find /root/.*history /home/*/.*history -exec rm -f {} \;
