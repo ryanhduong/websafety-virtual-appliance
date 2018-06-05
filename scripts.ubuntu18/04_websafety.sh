@@ -12,7 +12,7 @@ MINOR="9D9C"
 ARCH="amd64"
 
 # download
-wget http://packages.diladele.com/websafety/$MAJOR.$MINOR/$ARCH/release/ubuntu16/websafety-$MAJOR.${MINOR}_$ARCH.deb
+wget http://packages.diladele.com/websafety/$MAJOR.$MINOR/$ARCH/release/ubuntu18/websafety-$MAJOR.${MINOR}_$ARCH.deb
 
 # install
 dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb
