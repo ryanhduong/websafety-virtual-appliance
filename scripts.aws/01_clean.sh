@@ -6,12 +6,20 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+#
+# NOTE: to fix "A default password was found for the following user(s): /etc/mysql/debian.cnf" we used
+# https://support.n2ws.com/portal/kb/articles/a-clarification-about-the-debian-sys-maint-vulnerability-reported-by-aws-marketplace
+#
+
 # fix the mysql default user password error
-OLD_MYSQL_PASS=`cat /etc/mysql/debian.cnf | grep password | sort | uniq | awk '{ print $3 }'`
-mysql -u debian-sys-maint -p"$OLD_MYSQL_PASS" < setpass.sql
+# OLD_MYSQL_PASS=`cat /etc/mysql/debian.cnf | grep password | sort | uniq | awk '{ print $3 }'`
+# mysql -u debian-sys-maint -p"$OLD_MYSQL_PASS" < setpass.sql
 
 # replace the password
-sed -i "s/$OLD_MYSQL_PASS/vtrCUtsRcAW9W8Da/g" /etc/mysql/debian.cnf
+# sed -i "s/$OLD_MYSQL_PASS/vtrCUtsRcAW9W8Da/g" /etc/mysql/debian.cnf
+
+# remove the debian conf - not sure if it is ok to do that?
+rm /etc/mysql/debian.cnf
 
 # remove all keys
 shred -u /etc/ssh/*_key /etc/ssh/*_key.pub
