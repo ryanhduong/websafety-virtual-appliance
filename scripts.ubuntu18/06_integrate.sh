@@ -22,7 +22,24 @@ if [ -d $SSL_DB ]; then
 	rm -Rf $SSL_DB
 fi
 
-/usr/lib/squid/ssl_crtd -c -s $SSL_DB
+# see what squid we have now installed
+/usr/sbin/squid -v | grep "ersion 3." > /dev/null
+if [ $? -eq 0 ]; then
+
+	echo "Creating SSLDB for version 3 in $SSL_DB ..."
+
+	# this is version 3
+	/usr/lib/squid/ssl_crtd -c -s $SSL_DB
+
+else
+
+	echo "Creating SSLDB for version 4 in $SSL_DB ..."
+
+	# this is version 4
+	/usr/lib/squid/security_file_certgen -c -s $SSL_DB -M 4MB
+
+fi
+
 if [ $? -ne 0 ]; then
     echo "Error $? while initializing SSL certificate storage, exiting..."
     exit 1

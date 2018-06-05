@@ -22,6 +22,9 @@ if [ -f license.pem ]; then
     sudo -u websafety cp license.pem /opt/websafety/etc
 fi
 
+# patch one file switching web safety to squid 4
+patch /opt/websafety/var/console/_domain/squid/binary_squid.py < binary_squid.py.patch
+
 # relabel folder
 chown -R websafety:websafety /opt/websafety
 
