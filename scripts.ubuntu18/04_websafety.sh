@@ -25,6 +25,9 @@ fi
 # patch one file switching web safety to squid 4
 patch /opt/websafety/var/console/_domain/squid/binary_squid.py < binary_squid.py.patch
 
+# generate the configuration files
+sudo -u websafety python /opt/websafety/var/console/generate.py
+
 # relabel folder
 chown -R websafety:websafety /opt/websafety
 
