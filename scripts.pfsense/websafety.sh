@@ -23,7 +23,7 @@ endif
 # how to check user websafety is in websafety group???
 
 # get latest version of diladele icap server
-fetch http://packages.diladele.com/websafety/6.4.0.E377/amd64/release/freebsd11/websafety-6.4.0-amd64.txz
+fetch http://packages.diladele.com/websafety/6.4.0.A20A/amd64/release/freebsd11/websafety-6.4.0-amd64.txz
 
 # and install it
 pkg install -y websafety-6.4.0-amd64.txz

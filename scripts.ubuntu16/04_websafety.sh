@@ -8,7 +8,7 @@ fi
 
 # default arc
 MAJOR="6.4.0"
-MINOR="E377"
+MINOR="A20A"
 ARCH="amd64"
 
 # download
