@@ -8,7 +8,7 @@ fi
 
 # default arc
 MAJOR="6.4.0"
-MINOR="A20A"
+MINOR="65BB"
 ARCH="amd64"
 
 # get latest build
