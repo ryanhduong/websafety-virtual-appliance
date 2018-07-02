@@ -1,0 +1,10 @@
+--- binary_squid.py	2018-03-15 09:34:27.000000000 +0100
++++ binary_squid.py.new	2018-03-15 11:48:00.211791205 +0100
+@@ -64,4 +64,4 @@
+ 
+     @staticmethod
+     def major_version():
+-        return 3
+\ No newline at end of file
++        return 4
+\ No newline at end of file

@@ -11,16 +11,14 @@ MAJOR="6.3.0"
 MINOR="456A"
 ARCH="amd64"
 
-# get latest build
-cat /proc/cpuinfo | grep -m 1 ARMv7 > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-	ARCH="armhf"
-fi
+# download
+wget http://packages.diladele.com/websafety/$MAJOR.$MINOR/$ARCH/release/ubuntu16/websafety-$MAJOR.${MINOR}_$ARCH.deb
 
-wget http://packages.diladele.com/websafety/$MAJOR.$MINOR/$ARCH/release/debian9/websafety-$MAJOR.${MINOR}_$ARCH.deb
-
-# install it
+# install
 dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb
 
-# relabel log folder
+# patch one file switching web safety to squid 4
+patch /opt/websafety/var/console/_domain/squid/binary_squid.py < binary_squid.py.patch
+
+# relabel folder
 chown -R websafety:websafety /opt/websafety
