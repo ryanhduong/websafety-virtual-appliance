@@ -8,13 +8,13 @@ fi
 
 # default arc
 MAJOR="6.4.0"
-MINOR="65BB"
+MINOR="EB9A"
 ARCH="amd64"
 
 # get latest build
 cat /proc/cpuinfo | grep -m 1 ARMv7 > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-	ARCH="armhf"
+    ARCH="armhf"
 fi
 
 wget http://packages.diladele.com/websafety/$MAJOR.$MINOR/$ARCH/release/debian9/websafety-$MAJOR.${MINOR}_$ARCH.deb
