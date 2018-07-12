@@ -1,4 +1,5 @@
 #!/bin/bash
+
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
@@ -24,3 +25,6 @@ apt-get -y install \
     libdbi-perl \
     libecap3 \
     libecap3-dev
+
+# reboot now
+reboot

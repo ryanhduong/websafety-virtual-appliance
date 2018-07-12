@@ -1,11 +1,9 @@
 #!/bin/bash
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 1>&2
+
+if [[ $EUID -eq 0 ]]; then
+   echo "This script must NOT be run as root" 1>&2
    exit 1
 fi
-
-# set squid version
-source squid.ver
 
 # drop squid build folder
 rm -R build/squid
@@ -15,6 +13,9 @@ mkdir -p build/squid
 
 # copy the patches to the working folder
 cp rules.patch build/squid/rules.patch
+
+# set squid version
+source squid.ver
 
 # decend into working directory
 pushd build/squid
