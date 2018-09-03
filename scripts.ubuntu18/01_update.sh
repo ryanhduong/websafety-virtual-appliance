@@ -12,5 +12,8 @@ apt -y autoremove
 # update and upgrade
 apt-get update && apt-get -y upgrade
 
+# the Azure deployment insists on this
+sed -i 's/ClientAliveInterval 120/ClientAliveInterval 180/g' /etc/ssh/sshd_config
+
 # and now reboot
 reboot

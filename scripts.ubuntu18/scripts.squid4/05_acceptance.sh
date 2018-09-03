@@ -8,7 +8,6 @@ fi
 rm -rf _acceptance && mkdir _acceptance
 
 # publish acceptance
-cp build/libecap/libecap3*.deb _acceptance/
-cp build/squid3/squid*.deb _acceptance/
+cp build/squid/squid*.deb _acceptance/
 
 echo "Success, DEB files are in acceptance folder!"

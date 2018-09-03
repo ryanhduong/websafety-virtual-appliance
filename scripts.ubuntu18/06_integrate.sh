@@ -40,7 +40,6 @@ else
 
 fi
 
-# check the result of certgen run
 if [ $? -ne 0 ]; then
     echo "Error $? while initializing SSL certificate storage, exiting..."
     exit 1

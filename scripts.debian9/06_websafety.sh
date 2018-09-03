@@ -7,14 +7,14 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default arc
-MAJOR="6.3.0"
-MINOR="456A"
+MAJOR="6.4.0"
+MINOR="2517"
 ARCH="amd64"
 
 # get latest build
 cat /proc/cpuinfo | grep -m 1 ARMv7 > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-	ARCH="armhf"
+    ARCH="armhf"
 fi
 
 wget http://packages.diladele.com/websafety/$MAJOR.$MINOR/$ARCH/release/debian9/websafety-$MAJOR.${MINOR}_$ARCH.deb

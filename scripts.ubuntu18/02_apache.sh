@@ -10,7 +10,7 @@ fi
 apt-get -y install python-ldap python-pip python-openssl
 
 # install django
-pip install django==1.11.7
+pip install django==1.11.13
 pip install pytz
 pip install requests
 pip install pandas
