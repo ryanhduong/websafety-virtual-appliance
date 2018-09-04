@@ -10,7 +10,8 @@ fi
 pushd scripts.squid4
 
 # and build and install it
-bash 01_tools.sh && bash 02_build.sh && bash 03_install.sh
+echo "Now manually run all the *.sh scripts in this folder!"
+# bash 01_tools.sh && bash 02_build.sh && bash 03_install.sh
 
 # and return back
 popd 
