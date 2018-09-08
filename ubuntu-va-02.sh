@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install web safety
-pushd scripts.ubuntu16
+pushd scripts.ubuntu18
 bash 02_apache.sh && \
 bash 03_squid.sh && \
 bash 04_websafety.sh && \
