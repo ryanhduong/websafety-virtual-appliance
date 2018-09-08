@@ -6,12 +6,15 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# move on to squid scripts folder
-pushd scripts.squid4
+# add diladele apt key
+wget -qO - http://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
 
-# and build and install it
-echo "Now manually run all the *.sh scripts in this folder!"
-# bash 01_tools.sh && bash 02_build.sh && bash 03_install.sh
+# add new repo
+echo "deb http://squid42.diladele.com/ubuntu/ bionic main" > /etc/apt/sources.list.d/squid42.diladele.com.list
 
-# and return back
-popd 
+# and install
+apt-get update && apt-get install -y \
+	squid-common \
+	squid \
+	squidclient \
+	mc
