@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install build tools
-apt-get -y install devscripts build-essential fakeroot debhelper dh-autoreconf cdbs
+apt-get -y install devscripts build-essential fakeroot debhelper dh-autoreconf cdbs ed
 
 # install additional header packages for squid 4
 apt-get -y install \
