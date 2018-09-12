@@ -29,7 +29,7 @@ if [ -d $SSL_DB ]; then
 	rm -Rf $SSL_DB
 fi
 
-/usr/lib64/squid/ssl_crtd -c -s $SSL_DB
+/usr/lib64/squid/security_file_certgen -c -s $SSL_DB -M 4MB
 
 # and change its ownership
 chown -R squid:squid $SSL_DB

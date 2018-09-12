@@ -9,7 +9,7 @@ fi
 # install python libs and compiler (needed for reportlab)
 yum -y install \
 	python-devel python-pip python-ldap pyOpenSSL \
-	net-tools libjpeg-devel zlib-devel gcc-c++
+	net-tools libjpeg-devel zlib-devel gcc-c++ patch
 
 # install python django for web ui
 pip install django==1.11.7
