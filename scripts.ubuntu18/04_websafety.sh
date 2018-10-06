@@ -8,7 +8,7 @@ fi
 
 # default arc
 MAJOR="6.5.0"
-MINOR="12FB"
+MINOR="8073"
 ARCH="amd64"
 
 # download
@@ -26,7 +26,7 @@ fi
 patch /opt/websafety/var/console/_domain/squid/binary_squid.py < binary_squid.py.patch
 
 # generate the configuration files
-sudo -u websafety python /opt/websafety/var/console/generate.py
+sudo -u websafety python3 /opt/websafety/var/console/generate.py
 
 # relabel folder
 chown -R websafety:websafety /opt/websafety
