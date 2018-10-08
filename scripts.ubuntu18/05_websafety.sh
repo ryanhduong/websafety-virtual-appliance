@@ -8,7 +8,7 @@ fi
 
 # default arc
 MAJOR="6.5.0"
-MINOR="1D8F"
+MINOR="FA41"
 ARCH="amd64"
 
 # download
@@ -29,7 +29,7 @@ patch /opt/websafety/var/console/_domain/squid/binary_squid.py < binary_squid.py
 sudo -u websafety python3 /opt/websafety/var/console/generate.py
 
 # let Web UI manage the network
-python3 /opt/websafety/var/console/utils.py --network=ubuntu18
+sudo -u websafety python3 /opt/websafety/var/console/utils.py --network=ubuntu18
 
 # relabel folder
 chown -R websafety:websafety /opt/websafety
