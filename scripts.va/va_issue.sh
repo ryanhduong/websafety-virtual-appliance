@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IPADDR=`/sbin/ifconfig | grep "inet addr" | grep -v "127.0.0.1" | awk '{ print $2 }' | awk -F: '{ print $2 }'`
+IPADDR=`ifconfig | grep "inet" | grep -v "inet6" | grep -v "127.0.0.1" | awk '{ print $2 }'`
 CPUNUM=`cat /proc/cpuinfo | grep processor | wc -l`
 RAMNFO=`free -mh | grep Mem: | awk {'print $2, "total,", $4, "free" '}`
 DISKSZ=`df -h | grep "/$" | awk {'print $2, "total,", $4, "free" '}`

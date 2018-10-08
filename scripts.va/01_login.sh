@@ -25,17 +25,21 @@ fi
 # copy the /etc/issue creation script to installation folder
 cp va_issue.sh /opt/websafety/bin/
 
+# we are on ubuntu - make script executable
+chmod +x /opt/websafety/bin/va_issue.sh
+
 # now setup /etc/issue login banner
 if [ -f /etc/centos-release ] || [ -f /etc/redhat-release ]
 then
     # we are on centos 7 - just run the script (IP address will not be automatically updated)
     /bin/bash /opt/websafety/bin/va_issue.sh > /etc/issue    
 else
-    # we are on ubuntu - create a system wide interface up script
-    cp ubuntu16/issue_update /etc/network/if-up.d/issue_update
+    
+    #  create systemd service that runs everytime network is restarted
+    cp wsissue.service /etc/systemd/system/wsissue.service
 
-    # and make it executable
-    chmod +x /etc/network/if-up.d/issue_update
+    # enable it
+    systemctl enable wsissue.service
 fi
 
 echo "Success, run next step please."
