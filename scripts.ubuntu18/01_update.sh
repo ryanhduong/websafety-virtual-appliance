@@ -10,10 +10,13 @@ fi
 apt -y autoremove
 
 # update and upgrade
-apt-get update && apt-get -y upgrade
+apt update && apt -y upgrade
 
 # the Azure deployment insists on this
 sed -i 's/ClientAliveInterval 120/ClientAliveInterval 180/g' /etc/ssh/sshd_config
+
+# change cloud config to preserve hostname, otherwise our UI cannot set it
+sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.cfg
 
 # and now reboot
 reboot

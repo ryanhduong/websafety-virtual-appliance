@@ -13,7 +13,7 @@ wget -qO - http://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
 echo "deb http://squid3527.diladele.com/ubuntu/ xenial main" > /etc/apt/sources.list.d/squid3527.diladele.com.list
 
 # and install
-apt-get update && apt-get install -y \
+apt update && apt install -y \
 	libecap3 \
 	libecap3-dev \
 	squid-common \
