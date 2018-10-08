@@ -10,10 +10,10 @@ fi
 mysql -u root mysql < websafety.sql
 
 # create the database (all mysql specific settings are taken from settings.py)
-python /opt/websafety/var/console/switch_db.py --db=mysql
+python3 /opt/websafety/var/console/switch_db.py --db=mysql
 
 # generate the monitor.json in /opt/websafety/etc/ with new correct database settings
-python /opt/websafety/var/console/sync_db.py
+python3 /opt/websafety/var/console/sync_db.py
 
 # reset the owner
 chown -R websafety:websafety /opt/websafety
