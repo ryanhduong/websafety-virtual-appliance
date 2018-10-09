@@ -17,7 +17,6 @@ apt-get update && apt-get install -y \
 	squid-common \
 	squid \
 	squidclient \
-	mc \
 	libecap3 libecap3-dev
 
 # change the number of default file descriptors
