@@ -16,7 +16,7 @@ pip3 install requests
 pip3 install pandas
 pip3 install PyYAML
 
-# there are some bugs in Ubuntu 18 and Python3 environment concerting the LDAP module,
+# there are some bugs in Ubuntu 18 and Python3 environment concerning the LDAP module,
 # so we fix them by removing obsolete ldap modules and reinstalling the correct one
 pip3 uninstall ldap
 pip3 uninstall ldap3
