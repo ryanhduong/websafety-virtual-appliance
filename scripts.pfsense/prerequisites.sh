@@ -37,9 +37,9 @@ pkg add $REPOURL/mpc-1.0.3.txz
 pkg add $REPOURL/gcc5-5.4.0_2.txz
 pkg add $REPOURL/blas-3.5.0_3.txz
 pkg add $REPOURL/cblas-1.0_6.txz
+pkg add $REPOURL/openblas-0.2.19_1,1.txz
 pkg add $REPOURL/lapack-3.5.0_2.txz
 pkg add $REPOURL/suitesparse-4.0.2_6.txz
-pkg add $REPOURL/openblas-0.2.19_1,1.txz
 pkg add $REPOURL/py27-numpy-1.11.2_3,1.txz
 pkg add $REPOURL/py27-bottleneck-1.2.1.txz
 pkg add $REPOURL/py27-dateutil-2.6.0_1.txz
