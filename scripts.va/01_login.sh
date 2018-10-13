@@ -13,33 +13,28 @@ sed -i "s/#\{0,1\}PermitRootLogin *.*$/PermitRootLogin yes/g" /etc/ssh/sshd_conf
 dmidecode -s system-product-name | grep -i "vmware" > /dev/null
 if [ $? -eq 0 ]; then
     echo "Detected VMware, installing open-vm-tools..."
-    if [ -f /etc/centos-release ] || [ -f /etc/redhat-release ]; then
-        yum -y install open-vm-tools
-        systemctl enable vmtoolsd.service && systemctl start vmtoolsd.service
-    else
-        apt-get update > /dev/null
-        apt-get install -y open-vm-tools
-    fi
+    apt update > /dev/null
+    apt install -y open-vm-tools
 fi
 
 # copy the /etc/issue creation script to installation folder
 cp va_issue.sh /opt/websafety/bin/
 
-# we are on ubuntu - make script executable
+# make script executable
 chmod +x /opt/websafety/bin/va_issue.sh
 
-# now setup /etc/issue login banner
-if [ -f /etc/centos-release ] || [ -f /etc/redhat-release ]
-then
-    # we are on centos 7 - just run the script (IP address will not be automatically updated)
-    /bin/bash /opt/websafety/bin/va_issue.sh > /etc/issue    
-else
-    
-    #  create systemd service that runs everytime network is restarted
-    cp wsissue.service /etc/systemd/system/wsissue.service
+#  create systemd service that runs everytime network is restarted to update the /etc/issue login banner
+cp wsissue.service /etc/systemd/system/wsissue.service
 
-    # enable it
-    systemctl enable wsissue.service
+# enable it
+systemctl enable wsissue.service
+
+# let Web UI of Web Safety to manage the network
+sudo -u websafety python3 /opt/websafety/var/console/utils.py --network=ubuntu18
+
+# set new license if present
+if [ -f license.pem ]; then
+    sudo -u websafety cp license.pem /opt/websafety/etc
 fi
 
 echo "Success, run next step please."

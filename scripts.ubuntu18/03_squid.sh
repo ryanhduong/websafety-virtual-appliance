@@ -32,5 +32,3 @@ echo "LimitNOFILE=65535" >> $OVERRIDE_CNF
 
 # and reload the systemd
 systemctl daemon-reload
-
-

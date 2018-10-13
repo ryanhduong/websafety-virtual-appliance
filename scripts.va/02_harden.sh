@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # remove non needed packages
-apt autoremove
+apt -y autoremove
 
 # reset system root password to match documented one
 sudo echo root:Passw0rd | sudo chpasswd

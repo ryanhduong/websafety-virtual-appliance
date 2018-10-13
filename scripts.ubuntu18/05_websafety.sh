@@ -8,7 +8,7 @@ fi
 
 # default arc
 MAJOR="7.0.0"
-MINOR="3B14"
+MINOR="C610"
 ARCH="amd64"
 
 # download
@@ -17,26 +17,8 @@ wget http://packages.diladele.com/websafety/$MAJOR.$MINOR/$ARCH/release/ubuntu18
 # install
 dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb
 
-# set new license if present
-if [ -f license.pem ]; then
-    sudo -u websafety cp license.pem /opt/websafety/etc
-fi
-
-# patch one file switching web safety to squid 4
-patch /opt/websafety/var/console/_domain/squid/binary_squid.py < binary_squid.py.patch
-
-# generate the configuration files
+# generate the configuration files once
 sudo -u websafety python3 /opt/websafety/var/console/generate.py
-
-# let Web UI manage the network
-sudo -u websafety python3 /opt/websafety/var/console/utils.py --network=ubuntu18
 
 # relabel folder
 chown -R websafety:websafety /opt/websafety
-
-echo "WEB SAFETY INSTALLED"
-echo "WEB SAFETY INSTALLED"
-echo "WEB SAFETY INSTALLED --- License is till ---"
-cat /opt/websafety/etc/license.pem | grep "Not After"
-echo "WEB SAFETY INSTALLED"
-echo "WEB SAFETY INSTALLED"

@@ -25,9 +25,6 @@ pushd scripts.va
 bash 01_login.sh && bash 02_harden.sh
 popd
 
-# and reset owner
-chown -R websafety:websafety /opt/websafety
-
 # tell 
 echo "SUCCESS"
 echo "SUCCESS"
