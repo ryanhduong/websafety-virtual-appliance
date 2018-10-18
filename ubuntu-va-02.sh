@@ -10,8 +10,8 @@ fi
 pushd scripts.ubuntu18
 bash 02_apache.sh && \
 bash 03_squid.sh && \
-bash 04_websafety.sh && \
-bash 05_clamav.sh && \
+bash 04_clamav.sh && \
+bash 05_websafety.sh && \
 bash 06_integrate.sh
 popd
 
