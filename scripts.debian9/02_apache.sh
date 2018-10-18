@@ -15,6 +15,7 @@ pip3 install pytz
 pip3 install requests
 pip3 install pandas
 pip3 install PyYAML
+pip3 install PyOpenSSL
 
 # there are some bugs in Ubuntu 18 and Python3 environment concerning the LDAP module,
 # so we fix them by removing obsolete ldap modules and reinstalling the correct one
@@ -29,7 +30,7 @@ pip3 install python-ldap
 pip3 install reportlab==3.4.0
 
 # install apache and mod_wsgi and some other useful programs
-apt -y install apache2 libapache2-mod-wsgi-py3 htop mc
+apt -y install apache2 libapache2-mod-wsgi-py3 htop mc sudo
 
 # install kerberos client libraries
 export DEBIAN_FRONTEND=noninteractive 

@@ -29,4 +29,4 @@ dpkg --install squidclient_${SQUID_PKG}_${ARCH}.deb
 popd
 
 # put the squid on hold to prevent updating
-apt-mark hold squid squidclient squid-common
+apt-mark hold squid squidclient squid-common squid-langpack
