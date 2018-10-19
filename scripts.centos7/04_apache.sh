@@ -13,7 +13,8 @@ yum -y install httpd httpd-devel krb5-workstation mc
 systemctl enable httpd.service
 
 # install python 3 libs and compiler (needed for reportlab and pandas)
-yum -y install python34 python34-pip python34-devel gcc-c++
+yum -y install python36 
+ python34-pip python34-devel gcc-c++
 
 # install python django for web ui
 pip3 install django==2.1.2
