@@ -6,9 +6,6 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# enable epel repository
-yum -y install epel-release
-
 # add squid repository
 cp squid.repo /etc/yum.repos.d
 
