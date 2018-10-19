@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install clamav
-yum -y install wget clamav clamav-devel
+yum -y install wget clamav clamav-devel gcc-c++
 
 # we will be working in a subfolder
 rm -R ./build/ecap_clamav
