@@ -1,12 +1,10 @@
 [Unit]
-Description=Update /etc/issue file for Web Safety virtual appliance after network is up
-Wants=network-online.target
-After=network-online.target
+Description=Update root password for Web Safety virtual appliance once
 
 [Service]
 Type=oneshot
-ExecStart=/opt/websafety/bin/va_issue.sh
-StandardOutput=file:/etc/issue
+ExecStart=/opt/websafety/bin/chpass_aws.sh
+StandardOutput=file:/opt/websafety/var/log/chpass_aws.log
 RemainAfterExit=true
 
 [Install]
