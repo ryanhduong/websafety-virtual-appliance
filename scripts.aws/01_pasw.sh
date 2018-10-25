@@ -17,3 +17,4 @@ cp chpass_aws.service /etc/systemd/system/chpass_aws.service
 
 # enable it
 systemctl enable chpass_aws.service
+systemctl daemon-reload
