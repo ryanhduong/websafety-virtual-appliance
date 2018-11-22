@@ -6,6 +6,9 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+# add universe repo
+add-apt-repository universe
+
 # update and upgrade
 apt update && apt -y upgrade
 
