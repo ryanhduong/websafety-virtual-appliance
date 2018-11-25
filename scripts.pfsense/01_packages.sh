@@ -28,6 +28,7 @@ pkg add ${REPOURL}/py36-idna-2.6.txz
 pkg add ${REPOURL}/py36-asn1crypto-0.22.0.txz
 pkg add ${REPOURL}/py36-pycparser-2.18.txz
 pkg add ${REPOURL}/py36-cffi-1.11.2.txz
+pkg add ${REPOURL}/py36-six-1.11.0.txz
 pkg add ${REPOURL}/py36-cryptography-2.1.4.txz
 pkg add ${REPOURL}/py36-openssl-17.5.0_1.txz
 pkg add ${REPOURL}/py36-pysocks-1.6.8.txz
@@ -48,7 +49,6 @@ pkg add ${REPOURL}/openblas-0.2.20_2,1.txz
 pkg add ${REPOURL}/suitesparse-4.0.2_8.txz
 pkg add ${REPOURL}/py36-numpy-1.13.3_2,1.txz
 pkg add ${REPOURL}/py36-bottleneck-1.2.1_3.txz
-pkg add ${REPOURL}/py36-six-1.11.0.txz
 pkg add ${REPOURL}/py36-dateutil-2.6.1.txz
 pkg add ${REPOURL}/py36-numexpr-2.6.4_1.txz
 pkg add ${REPOURL}/py36-pandas-0.22.0_1.txz
