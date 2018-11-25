@@ -34,12 +34,3 @@ fetch http://packages.diladele.com/websafety/$DDWS_VERSION.$DDWS_BUILD/$ARCH/rel
 
 # and install it
 pkg install -y websafety-$DDWS_VERSION-$ARCH.txz
-
-# copy default apache virtual hosts file just in case
-cp -f /usr/local/etc/apache24/extra/httpd-vhosts.conf /usr/local/etc/apache24/extra/httpd-vhosts.conf.default
-
-# virtual hosts file needs to contaion only web safety virtual host
-echo "Include /usr/local/etc/apache24/extra/websafety_virtual_host" > /usr/local/etc/apache24/extra/httpd-vhosts.conf
-
-# restart apache
-/usr/local/etc/rc.d/apache24.sh restart 

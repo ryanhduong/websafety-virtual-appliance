@@ -15,3 +15,11 @@ sed -i '' 's/Listen 80$/Listen 8080/' /usr/local/etc/apache24/httpd.conf
 # and include the virtual hosts
 sed -i '' 's/\#Include etc\/apache24\/extra\/httpd-vhosts.conf/Include etc\/apache24\/extra\/httpd-vhosts.conf/' /usr/local/etc/apache24/httpd.conf
 
+# copy default apache virtual hosts file just in case
+cp -f /usr/local/etc/apache24/extra/httpd-vhosts.conf /usr/local/etc/apache24/extra/httpd-vhosts.conf.default
+
+# virtual hosts file needs to contaion only web safety virtual host
+echo "Include /usr/local/etc/apache24/extra/websafety_virtual_host" > /usr/local/etc/apache24/extra/httpd-vhosts.conf
+
+# restart apache
+/usr/local/etc/rc.d/apache24.sh restart 
