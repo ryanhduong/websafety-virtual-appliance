@@ -19,6 +19,7 @@ pkg add ${REPOURL}/ap24-py36-mod_wsgi4-4.5.24_1.txz
 # install django
 pkg add ${REPOURL}/py36-pytz-2018.3,1.txz
 pkg add ${REPOURL}/py36-django20-2.0.3.txz
+pkg add ${REPOURL}/py36-pyasn1-0.4.2.txz
 pkg add ${REPOURL}/py36-pyasn1-modules-0.2.1.txz
 pkg add ${REPOURL}/py36-pyldap-2.4.45.txz
 pkg add ${REPOURL}/py36-chardet-3.0.4.txz
