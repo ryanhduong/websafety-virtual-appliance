@@ -17,6 +17,7 @@ pkg add ${REPOURL}/py36-sqlite3-3.6.5_7.txz
 pkg add ${REPOURL}/ap24-py36-mod_wsgi4-4.5.24_1.txz
 
 # install django
+pkg add ${REPOURL}/py36-pytz-2018.3,1.txz
 pkg add ${REPOURL}/py36-django20-2.0.3.txz
 pkg add ${REPOURL}/py36-pyasn1-modules-0.2.1.txz
 pkg add ${REPOURL}/py36-pyldap-2.4.45.txz
@@ -49,21 +50,4 @@ pkg add ${REPOURL}/py36-bottleneck-1.2.1_3.txz
 pkg add ${REPOURL}/py36-six-1.11.0.txz
 pkg add ${REPOURL}/py36-dateutil-2.6.1.txz
 pkg add ${REPOURL}/py36-numexpr-2.6.4_1.txz
-pkg add ${REPOURL}/py36-pytz-2018.3,1.txz
 pkg add ${REPOURL}/py36-pandas-0.22.0_1.txz
-
-# in order to correctly start up apache at boot time init script needs to be renamed
-cp /usr/local/etc/rc.d/apache24 /usr/local/etc/rc.d/apache24.sh
-
-# make apache autostart
-sed -i '' 's/apache24_enable=\"NO\"/apache24_enable=\"YES\"/' /usr/local/etc/rc.d/apache24.sh
-
-# load wsgi module
-sed -i '' 's/\#LoadModule wsgi_module        libexec\/apache24\/mod_wsgi.so/LoadModule wsgi_module        libexec\/apache24\/mod_wsgi.so/' /usr/local/etc/apache24/modules.d/270_mod_wsgi.conf
-
-# make apache listen on 8080 port
-sed -i '' 's/Listen 80$/Listen 8080/' /usr/local/etc/apache24/httpd.conf
-
-# and include the virtual hosts
-sed -i '' 's/\#Include etc\/apache24\/extra\/httpd-vhosts.conf/Include etc\/apache24\/extra\/httpd-vhosts.conf/' /usr/local/etc/apache24/httpd.conf
-
