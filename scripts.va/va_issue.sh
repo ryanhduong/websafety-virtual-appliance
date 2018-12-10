@@ -1,6 +1,5 @@
 #!/bin/bash
 
-IPADDR=`ifconfig | grep "inet" | grep -v "inet6" | grep -v "127.0.0.1" | awk '{ print $2 }'`
 CPUNUM=`cat /proc/cpuinfo | grep processor | wc -l`
 RAMNFO=`free -mh | grep Mem: | awk {'print $2, "total,", $4, "free" '}`
 DISKSZ=`df -h | grep "/$" | awk {'print $2, "total,", $4, "free" '}`
@@ -41,9 +40,9 @@ then
     echo "Full featured Administrators Web Console is available at this box port 80"
 else
     echo "To use this Virtual Appliance - adjust your browser proxy settings to point"
-    echo "to the IP address or domain name of this box $IPADDR, port 3128 and browse the web."
+    echo "to the IP address or domain name of this box \\4, port 3128 and browse the web."
     echo 
-    echo "Full featured Administrators Web Console is available at http://$IPADDR:80"
+    echo "Full featured Administrators Web Console is available at http://\\4:80"
 fi
 echo 
 echo    
