@@ -20,7 +20,9 @@ yum -y --nogpgcheck localinstall websafety-${MAJOR}-${MINOR}.x86_64.rpm
 systemctl restart httpd.service
 
 # generate the configuration files
+pushd /opt/websafety
 sudo -u websafety python3 /opt/websafety/var/console/generate.py
+popd
 
 # relabel folder
 chown -R websafety:websafety /opt/websafety

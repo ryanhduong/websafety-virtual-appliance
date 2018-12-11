@@ -17,6 +17,7 @@ fi
 #   22   - sshd for SSH
 #   80   - http for HTTP traffic
 #   443  - https for HTTPS traffic
+#   8000 - for Web Safety UI
 #   3126 - for intercepted HTTP traffic for Squid
 #   3127 - for intercepted HTTPS traffic for Squid
 #   3128 - for normal explicit proxy traffic
@@ -24,6 +25,7 @@ fi
 firewall-cmd --zone=internal --add-service=ssh --permanent
 firewall-cmd --zone=internal --add-service=http --permanent
 firewall-cmd --zone=internal --add-service=https --permanent
+firewall-cmd --zone=internal --add-port=8000/tcp --permanent
 firewall-cmd --zone=internal --add-port=3126/tcp --permanent
 firewall-cmd --zone=internal --add-port=3127/tcp --permanent
 firewall-cmd --zone=internal --add-port=3128/tcp --permanent
