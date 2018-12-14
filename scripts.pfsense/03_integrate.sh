@@ -1,9 +1,14 @@
 #!/bin/sh
 
-# in order to correctly start up apache at boot time init script needs to be renamed
-cp /usr/local/etc/rc.d/apache24 /usr/local/etc/rc.d/apache24.sh
+# rename them (oh pfsense)
+mv /usr/local/etc/rc.d/wsicapd /usr/local/etc/rc.d/wsicapd.sh
+mv /usr/local/etc/rc.d/wsmgrd /usr/local/etc/rc.d/wsmgrd.sh
+mv /usr/local/etc/rc.d/wsytgd /usr/local/etc/rc.d/wsytgd.sh
+mv /usr/local/etc/rc.d/wssyncd /usr/local/etc/rc.d/wssyncd.sh
+mv /usr/local/etc/rc.d/wsgsbd /usr/local/etc/rc.d/wsgsbd.sh
+mv /usr/local/etc/rc.d/apache24 /usr/local/etc/rc.d/apache24.sh
 
-# make apache autostart
+# enable apache by default
 sed -i '' 's/apache24_enable=\"NO\"/apache24_enable=\"YES\"/' /usr/local/etc/rc.d/apache24.sh
 
 # load wsgi module
@@ -20,6 +25,9 @@ cp -f /usr/local/etc/apache24/extra/httpd-vhosts.conf /usr/local/etc/apache24/ex
 
 # virtual hosts file needs to contaion only web safety virtual host
 echo "Include /usr/local/etc/apache24/extra/websafety_virtual_host" > /usr/local/etc/apache24/extra/httpd-vhosts.conf
+
+# and replace the virtual port in apache
+sed -i '' 's/*:80/*:8080/' /usr/local/etc/apache24/extra/websafety_virtual_host
 
 # restart apache
 /usr/local/etc/rc.d/apache24.sh restart 
