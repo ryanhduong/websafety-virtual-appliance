@@ -26,8 +26,11 @@ cp -f /usr/local/etc/apache24/extra/httpd-vhosts.conf /usr/local/etc/apache24/ex
 # virtual hosts file needs to contaion only web safety virtual host
 echo "Include /usr/local/etc/apache24/extra/websafety_virtual_host" > /usr/local/etc/apache24/extra/httpd-vhosts.conf
 
-# and replace the virtual port in apache
-sed -i '' 's/*:80/*:8080/' /usr/local/etc/apache24/extra/websafety_virtual_host
+# switch the websafety virtual host to listening on 8080
+sed -i '' 's/VirtualHost \*\:80/VirtualHost \*\:8080/' /usr/local/etc/apache24/extra/websafety_virtual_host || true
+
+# copy some pages that should be hidden on pfsense
+cp -f /opt/websafety/var/console/frame/templates/login_pfs.html /opt/websafety/var/console/frame/templates/login.html          
 
 # restart apache
 /usr/local/etc/rc.d/apache24.sh restart 
