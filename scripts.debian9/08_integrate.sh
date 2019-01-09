@@ -22,7 +22,10 @@ if [ -d $SSL_DB ]; then
     rm -Rf $SSL_DB
 fi
 
-/usr/lib/squid/ssl_crtd -c -s $SSL_DB
+# see what squid we have now installed
+echo "Creating SSLDB for version 4 in $SSL_DB ..."
+
+/usr/lib/squid/security_file_certgen -c -s $SSL_DB -M 4MB
 if [ $? -ne 0 ]; then
     echo "Error $? while initializing SSL certificate storage, exiting..."
     exit 1

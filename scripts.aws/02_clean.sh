@@ -33,7 +33,7 @@ find /root/.subversion/auth/svn.simple/ /home/*/.subversion/auth/svn.simple/ -ex
 
 # remove all scripts
 cd /home/ubuntu
-rm -Rf scripts.ubuntu16
+rm -Rf scripts.ubuntu18
 rm -Rf scripts.mysql
 rm -Rf scripts.aws
 

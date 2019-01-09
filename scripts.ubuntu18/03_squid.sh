@@ -6,11 +6,29 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# move on to squid scripts folder
-pushd scripts.squid4
+# add diladele apt key
+wget -qO - http://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
 
-# and build and install it
-bash 01_tools.sh && bash 02_build.sh && bash 03_install.sh
+# add new repo
+echo "deb http://squid44.diladele.com/ubuntu/ bionic main" > /etc/apt/sources.list.d/squid44.diladele.com.list
 
-# and return back
-popd 
+# and install
+apt-get update && apt-get install -y \
+	squid-common \
+	squid \
+	squidclient \
+	libecap3 libecap3-dev
+
+# change the number of default file descriptors
+OVERRIDE_DIR=/etc/systemd/system/squid.service.d
+OVERRIDE_CNF=$OVERRIDE_DIR/override.conf
+
+mkdir -p $OVERRIDE_DIR
+
+# generate the override file
+rm $OVERRIDE_CNF
+echo "[Service]"         >> $OVERRIDE_CNF
+echo "LimitNOFILE=65535" >> $OVERRIDE_CNF
+
+# and reload the systemd
+systemctl daemon-reload

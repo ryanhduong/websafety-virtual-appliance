@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install clamav
-apt-get install -y clamav clamav-daemon libclamav-dev
+apt-get install -y clamav clamav-daemon libclamav-dev libecap3 libecap3-dev
 
 # we will be working in a subfolder
 rm -R ./build/ecap_clamav

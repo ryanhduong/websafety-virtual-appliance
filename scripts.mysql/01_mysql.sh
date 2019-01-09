@@ -28,7 +28,7 @@ else
 	export DEBIAN_FRONTEND=noninteractive 
 
 	# install it
-	apt-get -y install mysql-server python-mysqldb
+	apt-get -y install mysql-server python3-mysqldb
 
 	# stop mysql
 	service mysql stop

@@ -11,15 +11,10 @@ MAJOR="7.0.0"
 MINOR="7A5E"
 ARCH="amd64"
 
-# get latest build
-cat /proc/cpuinfo | grep -m 1 ARMv7 > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    ARCH="armhf"
-fi
+# download
+wget http://packages.diladele.com/websafety/$MAJOR.$MINOR/$ARCH/release/ubuntu18/websafety-$MAJOR.${MINOR}_$ARCH.deb
 
-wget http://packages.diladele.com/websafety/$MAJOR.$MINOR/$ARCH/release/debian9/websafety-$MAJOR.${MINOR}_$ARCH.deb
-
-# install it
+# install
 dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb
 
 # generate the configuration files once

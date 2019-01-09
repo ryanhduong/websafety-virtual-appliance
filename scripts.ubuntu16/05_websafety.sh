@@ -7,8 +7,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default arc
-MAJOR="6.4.0"
-MINOR="2517"
+MAJOR="6.5.0"
+MINOR="7DB9"
 ARCH="amd64"
 
 # download
@@ -21,6 +21,12 @@ dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb
 if [ -f license.pem ]; then
     sudo -u websafety cp license.pem /opt/websafety/etc
 fi
+
+# generate the configuration files
+sudo -u websafety python3 /opt/websafety/var/console/generate.py
+
+# let Web UI manage the network
+python3 /opt/websafety/var/console/utils.py --network=ubuntu16
 
 # relabel folder
 chown -R websafety:websafety /opt/websafety
